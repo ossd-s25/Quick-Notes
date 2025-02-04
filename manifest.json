@@ -1,26 +1,19 @@
 {
-    "manifest_version": 2, 
-    "name": "My Quick Notes",
-    "version": "1.0",
-    "description": "Quick Notes",
-    "icons": {
-      "48": "icons/icon.png"
-    },
-    "sidebar_action": {
-      "default_title": "Quick Notes",
-      "default_panel": "sidebar/sidebar.html"
-    },
-    "background": {
-      "scripts": ["background.js"]
-    },
-    "permissions": [ 
-      "activeTab"
- 
-    ],
-    "browser_specific_settings": {
-      "gecko": {
-        "id": "my-quick-notes@example.com"
-      }
-    }
+  "manifest_version": 2,
+  "name": "Sidebar Notes",
+  "version": "1.0",
+  "default_locale": "en-US",
+  "description": "A Firefox extension to take notes in a sidebar and save them locally.",
+  "permissions": ["storage"],  
+  "sidebar_action": {
+    "default_title": "Notes",
+    "default_panel": "sidebar.html"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon.png"
   }
-  
+}

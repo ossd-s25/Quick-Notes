@@ -1,11 +1,3 @@
-// background.js
-
-
-browser.runtime.onInstalled.addListener((details) => {
-    if (details.reason === "install") {
-      console.log("My Quick Notes Already Downloaded");
-
-    }
-  });
-  
-  
+browser.runtime.onInstalled.addListener(() => {
+  console.log("Sidebar Notes Extension Installed!");
+});
