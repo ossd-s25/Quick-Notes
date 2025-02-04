@@ -12,27 +12,70 @@
         }
         textarea {
             width: 100%;
-            height: 400px;
+            height: 200px;
             font-size: 16px;
         }
-        button {
-            margin-top: 10px;
-            padding: 8px;
+        #modeToggle {
+            margin-bottom: 10px;
+        }
+        .button {
+            background-color: #ccc;
+            color: #000;
+            border: 1px solid transparent;
+            padding: 8px 16px;
+            font-size: 14px;
+            border-radius: 6px;
             cursor: pointer;
+        }
+        .buttonn:hover {
+            background-color: #ccc;
+            border-color: #ccc;
+        }
+
+        #noteArea, #preview {
+            width: 100%;
+            height: 200px;
+            font-size: 16px;
+            display: none;
+        }
+        #noteArea {
+            display: block; /* Show the editor by default */
         }
         #preview {
           margin-top: 20px;
           padding: 10px;
           border: 1px solid #ccc;
           background-color: #f9f9f9;
-      }
+        }
+        .hidden {
+            display: none;
+        }
+        
     </style>
 </head>
 <body>
     <h2>Notes</h2>
+
+    <!-- source mode vs preview mode -->
+    <div id="modeToggle">
+        <button id="sourceBtn" class="button">Source</button>
+        <button id="previewBtn" class="button">Preview</button>
+    </div>
     <textarea id="noteArea"></textarea>
-    <button id="saveNote">Save Note</button>
     <div id="preview"></div>
+
+    <!-- load file vs save file -->
+
+    <div id="loadSave">
+        <input type="file" id="fileInput" class="hidden" accept=".md" />
+        <label for="fileInput" id="fileLabel" class="button">Load Note</label>
+        <button id="saveNote" class="button">Save Note</button> 
+    </div>
+    
+
+    <!-- execute the scripts -->
+    <script src="libs/marked.min.js"></script>
     <script src="sidebar.js"></script>
+
 </body>
 </html>
