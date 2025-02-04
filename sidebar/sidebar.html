@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quick Notes</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 8px;
+      font-family: sans-serif;
+    }
+    textarea {
+      width: 100%;
+      height: 150px;
+      box-sizing: border-box;
+      margin-bottom: 8px;
+    }
+    button {
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+    #result {
+      margin-top: 8px;
+      color: #333;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h3>My Quick Notes</h3>
+
+  <textarea id="noteArea" placeholder="..."></textarea>
+  
+  <div>
+    <button id="toUpperBtn">Uppercase</button>
+    <button id="toLowerBtn">Lowercase</button>
+    <button id="capitalizeBtn">Capitalize Words</button>
+    <button id="slugifyBtn">Slugify</button>
+    <button id="truncateBtn">Truncate to 10 words</button>
+    <button id="md2plainBtn">Remove Simple Markdown</button>
+    <button id="countBtn">Word Count</button>
+    <button id="downloadBtn">Download .md</button>
+    <button id="jsonMinifyBtn">Minify JSON</button>
+    <button id="jsonFormatBtn">Format JSON</button>
+  </div>
+  
+  <p id="result"></p>
+
+  <script type="module" src="sidebar.js"></script>
+</body>
+</html>

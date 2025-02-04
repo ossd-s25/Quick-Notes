@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2, 
+    "name": "My Quick Notes",
+    "version": "1.0",
+    "description": "Quick Notes",
+    "icons": {
+      "48": "icons/icon.png"
+    },
+    "sidebar_action": {
+      "default_title": "Quick Notes",
+      "default_panel": "sidebar/sidebar.html"
+    },
+    "background": {
+      "scripts": ["background.js"]
+    },
+    "permissions": [ 
+      "activeTab"
+ 
+    ],
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "my-quick-notes@example.com"
+      }
+    }
+  }
+  
