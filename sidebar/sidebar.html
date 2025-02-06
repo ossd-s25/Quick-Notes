@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,53 +10,52 @@
             padding: 10px;
             font-family: Arial, sans-serif;
         }
-        textarea {
-            margin-bottom: 5px;
+        h2 {
+            margin-bottom: 10px;
+        }
+        #noteContainer {
             width: 100%;
-            height: 200px;
+            max-height: 400px; /* 限制最大高度 */
+            overflow-y: auto; /* 启用垂直滚动条 */
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+        }
+        textarea {
+            width: 100%;
+            min-height: 200px;
             font-size: 16px;
+            border: none; /* 移除内边框 */
+            box-sizing: border-box;
+            resize: none; /* 禁用调整大小 */
         }
         #modeToggle {
+            display: flex;
+            gap: 10px;
             margin-bottom: 10px;
         }
         .button {
-            margin-top: 5px;
-            background-color: #ccc;
+            background-color: #eee;
             color: #000;
-            border: 1px solid transparent;
+            border: 1px solid #ccc;
             padding: 8px 16px;
             font-size: 14px;
             border-radius: 6px;
             cursor: pointer;
         }
-        .buttonn:hover {
-            margin-top: 5px;
-            background-color: #ccc;
-            border-color: #ccc;
+        .button:hover {
+            background-color: #ddd;
         }
-
-        #noteArea, #preview {
-            width: 100%;
-            height: 200px;
-            font-size: 16px;
-            display: none;
+        #loadSave {
+            display: flex;
+            gap: 10px;
+            align-items: center;
         }
-        #noteArea {
-            display: block; /* Show the editor by default */
+        #fileInput {
+            display: none; /* Hidden input file selector */
         }
-        #preview {
-            width: 100%;
-            min-height: 200px;  /* Set a reasonable minimum height */
-            max-height: 400px;  /* Limit height before scrolling */
-            overflow-y: auto;   /* Enable vertical scrolling when needed */
-            border: 1px solid #ccc;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
-        .hidden {
-            display: none;
-        }
-        
     </style>
 </head>
 <body>
@@ -67,8 +66,13 @@
         <button id="sourceBtn" class="button">Source</button>
         <button id="previewBtn" class="button">Preview</button>
     </div>
-    <textarea id="noteArea"></textarea>
-    <div id="preview"></div>
+    
+    <!-- 笔记容器 -->
+    <div id="noteContainer">
+        <textarea id="noteArea" placeholder="Write your notes here..."></textarea>
+    </div>
+
+    <div id="preview" style="display: none;"></div>
 
     <!-- load file vs save file -->
     <div id="loadSave">
@@ -76,7 +80,6 @@
         <label for="fileInput" id="fileLabel" class="button">Load Note</label>
         <button id="saveNote" class="button">Save Note</button> 
     </div>
-    
 
     <!-- execute the scripts -->
     <script>
@@ -94,6 +97,5 @@
     <script src="libs/tex-mml-chtml.js" async></script>
     <script src="libs/marked.min.js"></script>
     <script src="sidebar.js"></script>
-
 </body>
 </html>
