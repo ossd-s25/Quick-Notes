@@ -4,7 +4,7 @@
   "version": "1.0",
   "default_locale": "en-US",
   "description": "A Firefox extension to take notes in a sidebar and save them locally.",
-  "permissions": ["storage"],  
+  "permissions": ["storage", "downloads"],  
   "sidebar_action": {
     "default_title": "Notes",
     "default_panel": "sidebar/sidebar.html",

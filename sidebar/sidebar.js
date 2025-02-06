@@ -4,13 +4,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     const noteArea = document.getElementById("noteArea");
     const saveButton = document.getElementById("saveNote");
     const preview = document.getElementById("preview");
-    const result = document.getElementById("result");
     const sourceBtn = document.getElementById("sourceBtn");
     const previewBtn = document.getElementById("previewBtn");
 
+    // marked settings
+    marked.setOptions({
+        gfm: true,  // GitHub-flavored Markdown
+        breaks: true,
+        smartypants: false
+    });
+
     // Load Notes
     const fileInput = document.getElementById('fileInput');
-
     fileInput.addEventListener('change', (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -23,21 +28,28 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     // Save Notes
-    saveButton.addEventListener('click', () => {
+    saveButton.addEventListener('click', async () => {
         const noteContent = noteArea.value;
-        const blob = new Blob([noteContent], { type: 'text/markdown' });
-        const url = URL.createObjectURL(blob);
+        const blob = new Blob([noteContent], { type: "text/markdown" });
 
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'my-quick-note.md';
-        a.click();
+        const url = URL.createObjectURL(blob);
+        const fileName = "my-quick-note.md";
+
+        try {
+            let downloadId = await browser.downloads.download({
+                url: url,
+                filename: fileName, 
+                saveAs: true 
+            });
+
+            console.log(`Download started: ${downloadId}`);
+        } catch (error) {
+            console.error("Download failed:", error);
+        }
 
         setTimeout(() => {
-            URL.revokeObjectURL(url);
+            URL.revokeObjectURL(url); 
         }, 1000);
-
-        // resultEl.textContent = "Downloaded my-quick-note.md file.";
     });
 
     // Toggle to Source mode
@@ -49,16 +61,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Toggle to Preview mode
     previewBtn.addEventListener("click", () => {
         preview.innerHTML = marked.parse(noteArea.value);
+        MathJax.typesetPromise([preview]).catch((err) => console.error('MathJax typeset failed: ', err));
         noteArea.style.display = "none";
         preview.style.display = "block";
     });
-
-    // Save notes on button click
-    saveButton.addEventListener("click", async () => {
-        const noteContent = noteArea.value;
-        await browser.storage.local.set({ notes: noteArea.value });
-        preview.innerHTML = marked.parse(noteContent);
-    });
-
-
 });

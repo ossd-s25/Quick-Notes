@@ -11,6 +11,7 @@
             font-family: Arial, sans-serif;
         }
         textarea {
+            margin-bottom: 5px;
             width: 100%;
             height: 200px;
             font-size: 16px;
@@ -19,6 +20,7 @@
             margin-bottom: 10px;
         }
         .button {
+            margin-top: 5px;
             background-color: #ccc;
             color: #000;
             border: 1px solid transparent;
@@ -28,6 +30,7 @@
             cursor: pointer;
         }
         .buttonn:hover {
+            margin-top: 5px;
             background-color: #ccc;
             border-color: #ccc;
         }
@@ -42,10 +45,13 @@
             display: block; /* Show the editor by default */
         }
         #preview {
-          margin-top: 20px;
-          padding: 10px;
-          border: 1px solid #ccc;
-          background-color: #f9f9f9;
+            width: 100%;
+            min-height: 200px;  /* Set a reasonable minimum height */
+            max-height: 400px;  /* Limit height before scrolling */
+            overflow-y: auto;   /* Enable vertical scrolling when needed */
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
         }
         .hidden {
             display: none;
@@ -65,7 +71,6 @@
     <div id="preview"></div>
 
     <!-- load file vs save file -->
-
     <div id="loadSave">
         <input type="file" id="fileInput" class="hidden" accept=".md" />
         <label for="fileInput" id="fileLabel" class="button">Load Note</label>
@@ -74,6 +79,19 @@
     
 
     <!-- execute the scripts -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                processHtmlClass: 'math'
+            }
+        };
+    </script>
+    <script src="libs/tex-mml-chtml.js" async></script>
     <script src="libs/marked.min.js"></script>
     <script src="sidebar.js"></script>
 
