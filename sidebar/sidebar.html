@@ -15,8 +15,11 @@
     }
     /* 统一的文本框容器 */
     #noteContainer {
+      display: flex;
+      flex-direction: column; /* 让内容纵向排列 */
       width: 100%;
-      height: 220px;           /* 固定高度 */
+      min-height: 150px;
+      max-height: 500px; /* 可选：防止无限拉伸 */
       border: 1px solid #ccc;
       border-radius: 6px;
       box-sizing: border-box;
@@ -27,25 +30,20 @@
     #noteContainer textarea,
     #noteContainer #preview {
       width: 100%;
-      height: 100%;
       font-size: 16px;
       border: none;
       box-sizing: border-box;
-      resize: none;              /* 禁止手动调整大小 */
-      padding: 10px;
-      white-space: pre-wrap;     /* 保留换行并自动换行显示长内容 */
-      overflow: auto;            /* 超出内容时显示滚动条（垂直滚动） */
+      resize: vertical; /* 允许竖向拉伸 */
+      min-height: 150px; /* 设置最小高度 */
+      max-height: 500px; /* 限制最大高度 */
+      padding: 8px;
+      white-space: pre-wrap; /* 保留换行并自动换行 */
+      overflow: auto; /* 超出内容时显示滚动条 */
       background-color: transparent; /* 让背景继承容器背景 */
     }
     /* 针对预览区域取消横向滚动，强制换行 */
     #noteContainer #preview {
-      overflow-x: hidden;           /* 隐藏横向滚动条 */
-      word-wrap: break-word;        /* 超长单词也能断开换行 */
-      overflow-wrap: break-word;    /* 兼容更多浏览器 */
-    }
-    /* 针对预览区域内的代码块处理 */
-    #noteContainer #preview pre {
-      white-space: pre-wrap;
+      overflow-x: hidden; /* 隐藏横向滚动条 */
       word-wrap: break-word;
       overflow-wrap: break-word;
     }
