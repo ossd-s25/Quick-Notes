@@ -1,101 +1,121 @@
 <!DOCTYPE html> 
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes Sidebar</title>
-    <style>
-        body {
-            width: 100%;
-            padding: 10px;
-            font-family: Arial, sans-serif;
-        }
-        h2 {
-            margin-bottom: 10px;
-        }
-        #noteContainer {
-            width: 100%;
-            max-height: 400px; /* 限制最大高度 */
-            overflow-y: auto; /* 启用垂直滚动条 */
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            padding: 10px;
-            box-sizing: border-box;
-            background-color: #f9f9f9;
-        }
-        textarea {
-            width: 100%;
-            min-height: 200px;
-            font-size: 16px;
-            border: none; /* 移除内边框 */
-            box-sizing: border-box;
-            resize: none; /* 禁用调整大小 */
-        }
-        #modeToggle {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-        .button {
-            background-color: #eee;
-            color: #000;
-            border: 1px solid #ccc;
-            padding: 8px 16px;
-            font-size: 14px;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        .button:hover {
-            background-color: #ddd;
-        }
-        #loadSave {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-        #fileInput {
-            display: none; /* Hidden input file selector */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes Sidebar</title>
+  <style>
+    body {
+      width: 100%;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
+    /* 统一的文本框容器 */
+    #noteContainer {
+      width: 100%;
+      height: 220px;           /* 固定高度 */
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      background-color: #f9f9f9;
+      position: relative;
+    }
+    /* 让 textarea 与 preview 使用相同的样式 */
+    #noteContainer textarea,
+    #noteContainer #preview {
+      width: 100%;
+      height: 100%;
+      font-size: 16px;
+      border: none;
+      box-sizing: border-box;
+      resize: none;              /* 禁止手动调整大小 */
+      padding: 10px;
+      white-space: pre-wrap;     /* 保留换行并自动换行显示长内容 */
+      overflow: auto;            /* 超出内容时显示滚动条（垂直滚动） */
+      background-color: transparent; /* 让背景继承容器背景 */
+    }
+    /* 针对预览区域取消横向滚动，强制换行 */
+    #noteContainer #preview {
+      overflow-x: hidden;           /* 隐藏横向滚动条 */
+      word-wrap: break-word;        /* 超长单词也能断开换行 */
+      overflow-wrap: break-word;    /* 兼容更多浏览器 */
+    }
+    /* 针对预览区域内的代码块处理 */
+    #noteContainer #preview pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    /* mode 切换按钮样式 */
+    #modeToggle {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .button {
+      background-color: #eee;
+      color: #000;
+      border: 1px solid #ccc;
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #ddd;
+    }
+    /* load/save 区域样式 */
+    #loadSave {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: 10px;
+    }
+    #fileInput {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-    <h2>Notes</h2>
+  <h2>Notes</h2>
 
-    <!-- source mode vs preview mode -->
-    <div id="modeToggle">
-        <button id="sourceBtn" class="button">Source</button>
-        <button id="previewBtn" class="button">Preview</button>
-    </div>
-    
-    <!-- 笔记容器 -->
-    <div id="noteContainer">
-        <textarea id="noteArea" placeholder="Write your notes here..."></textarea>
-    </div>
-
+  <!-- 切换模式按钮 -->
+  <div id="modeToggle">
+    <button id="sourceBtn" class="button">Source</button>
+    <button id="previewBtn" class="button">Preview</button>
+  </div>
+  
+  <!-- 文本框容器，包含 textarea 和 preview（互斥显示） -->
+  <div id="noteContainer">
+    <textarea id="noteArea" placeholder="Write your notes here..."></textarea>
     <div id="preview" style="display: none;"></div>
+  </div>
 
-    <!-- load file vs save file -->
-    <div id="loadSave">
-        <input type="file" id="fileInput" class="hidden" accept=".md" />
-        <label for="fileInput" id="fileLabel" class="button">Load Note</label>
-        <button id="saveNote" class="button">Save Note</button> 
-    </div>
+  <!-- load file 与 save file 区域 -->
+  <div id="loadSave">
+    <input type="file" id="fileInput" accept=".md" />
+    <label for="fileInput" id="fileLabel" class="button">Load Note</label>
+    <button id="saveNote" class="button">Save Note</button> 
+  </div>
 
-    <!-- execute the scripts -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
-            },
-            options: {
-                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-                processHtmlClass: 'math'
-            }
-        };
-    </script>
-    <script src="libs/tex-mml-chtml.js" async></script>
-    <script src="libs/marked.min.js"></script>
-    <script src="sidebar.js"></script>
+  <!-- MathJax 与其它脚本 -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        processHtmlClass: 'math'
+      }
+    };
+  </script>
+  <script src="libs/tex-mml-chtml.js" async></script>
+  <script src="libs/marked.min.js"></script>
+  <script src="sidebar.js"></script>
 </body>
 </html>
