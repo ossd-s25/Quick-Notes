@@ -17,12 +17,14 @@ Quick Notes supports most of the Markdown and LaTeX syntax. These functions are 
 Quick Notes provides source mode and preview mode. You can toggle to switch between the two modes seamlessly (just as you can on github).
 
 ## Free Resize of Window
+![resize](figs/window_resize.gif)
 
 ## Save \& Load Notes
 ![save_load](figs/save_load.gif)
 You can save \& load your notes on Quick Notes whenever you want! Due to file system write access restriction on JS scripts, this is powered by `browser.downloads` API provided by firefox.
 
-## Friendly UI
+## Undo Changes
+![undo](figs/undo.gif)
 
 ## Open Source Project Best Practices
 We adopted the best practices of open source projects in Quick Notes, including [README.md](README.md), [MIT LICENSE](LICENSE), [Code of Conduct](CODE_OF_CONDUCT.md) (adopted from Contributor Covenant Code of Conduct), and [Contribution Guidelines](CONTRIBUTING.md).
