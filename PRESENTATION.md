@@ -25,7 +25,7 @@ You can save \& load your notes on Quick Notes whenever you want! Due to file sy
 ## Friendly UI
 
 ## Open Source Project Best Practices
-We adopted the best practices of open source projects in Quick Notes, including README.md, MIT LICENSE, CODE_OF_CONDUCT.md (adopted from Contributor Covenant Code of Conduct), and CONTRIBUTING.md.
+We adopted the best practices of open source projects in Quick Notes, including [README.md](README.md), [MIT LICENSE](LICENSE), [Code of Conduct](CODE_OF_CONDUCT.md) (adopted from Contributor Covenant Code of Conduct), and [Contribution Guidelines](CONTRIBUTING.md).
 
 ## Our Team
 - [Yufeng(Felix) Xu](https://zephyr271828.github.io/)

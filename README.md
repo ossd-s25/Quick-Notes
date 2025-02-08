@@ -34,7 +34,7 @@ git clone git@github.com:ossd-s25/Quick-Notes.git
 ### Documents
 - [Presentation Notes](PRESENTATION.md)
 - [Contribution Guidelines](CONTRIBUTING.md)
-- [Code of Conduct](CONTRIBUTING.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
 
 ### Credits
 - [Marked](https://github.com/markedjs/marked)
