@@ -1,8 +1,14 @@
+<!-- <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+    <img src="icons/icon-96-notes.png" alt="Image" style="max-width: 80px; height: auto;">
+    <h2 style="font-size: 36px;">Quick Notes</h2>
+</div> -->
 <div align="center">
     <img src="figs/title.png" alt="Quick Notes" width="300" height="auto">
 
 **A note taking extension for Mozilla Firefox**
 </div>
+
+
 
 ## About
 
@@ -26,13 +32,14 @@ git clone git@github.com:ossd-s25/Quick-Notes.git
 
 ## Links
 ### Documents
-- [Presentation Notes](PRESENTAION.md)
+- [Presentation Notes](PRESENTATION.md)
 - [Contribution Guidelines](CONTRIBUTING.md)
 - [Code of Conduct](CONTRIBUTING.md)
 
-### Libraries
+### Credits
 - [Marked](https://github.com/markedjs/marked)
 - [MathJax](https://github.com/mathjax/MathJax)
+- [icon](https://icons8.com/icon/15042/create)
 
 ## Contributors
 - [Yufeng(Felix) Xu](https://zephyr271828.github.io/)
