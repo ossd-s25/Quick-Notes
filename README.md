@@ -48,6 +48,115 @@ You can freely resize the text box to adjust its width and height according to y
 
 This feature provides flexibility, allowing you to customize the note-taking area for better readability and convenience.
 
+## LaTeX Auto Complete
+
+Below is a list of auto-completion triggers and corresponding LaTeX code snippets for the sidebar note extension when pressing the Tab key.
+
+### 1. Special Environments
+
+| Trigger  | Completion Example | Description |
+|----------|--------------------|-------------|
+| `balis`  | ```latex \begin{align*} \item \end{align*} ``` | `align*` environment |
+| `bali`   | ```latex \begin{align} \item \end{align} ``` | `align` environment |
+| `baliat` | ```latex \begin{alignat} \item \end{alignat} ``` | `alignat` environment |
+| `baliats`| ```latex \begin{alignat*} \item \end{alignat*} ``` | `alignat*` environment |
+| `balied` | ```latex \begin{aligned} \item \end{aligned} ``` | `aligned` environment |
+| `baliedat` | ```latex \begin{alignedat}[...] \item \end{alignedat} ``` | `alignedat` with optional parameter |
+
+### 2. Generic Environments
+
+The auto-completion for generic environments follows the rule: `b` + first three letters of the environment name.
+
+| Trigger  | Completion Example | Description |
+|----------|--------------------|-------------|
+| `bite`   | ```latex \begin{itemize} \item \end{itemize} ``` | `itemize` environment |
+
+Similar rules apply for `document`, `abstract`, `tabular`, `appendix`, and more.
+
+### 3. Font Commands
+
+| Trigger  | Completion  | Description |
+|----------|------------|-------------|
+| `tbf`    | `\textbf{}`   | Bold text |
+| `ttf`    | `\texttt{}`   | Monospace text |
+| `tsf`    | `\textsf{}`   | Sans-serif text |
+| `tsc`    | `\textsc{}`   | Small caps text |
+| `tsl`    | `\textsl{}`   | Slanted text |
+| `tit`    | `\textit{}`   | Italic text |
+| `tem`    | `\emph{}`     | Emphasized text |
+
+### 4. Section Commands
+
+| Trigger  | Completion  | Description |
+|----------|------------|-------------|
+| `cha`    | `\chapter{}` | Chapter (for books) |
+| `sec`    | `\section{}` | Section |
+| `ssec`   | `\subsection{}` | Subsection |
+| `sssec`  | `\subsubsection{}` | Sub-subsection |
+
+### 5. Greek Letters
+
+Greek letter triggers start with `x`, followed by the name of the letter.
+
+| Trigger  | Completion | Description |
+|----------|-----------|-------------|
+| `xalpha`  | `\alpha`  | Alpha |
+| `xbeta`   | `\beta`   | Beta |
+| `xchi`    | `\chi`    | Chi |
+| `xdelta`  | `\delta`  | Delta |
+| `xgamma`  | `\gamma`  | Gamma |
+| `xiota`   | `\iota`   | Iota |
+| `xmu`     | `\mu`     | Mu |
+| `xlamb`   | `\lambda` | Lambda |
+| `xLambda` | `\Lambda` | Uppercase Lambda |
+| `xnu`     | `\nu`     | Nu |
+| `xomega`  | `\omega`  | Omega |
+| `xOmega`  | `\Omega`  | Uppercase Omega |
+| `xpi`     | `\pi`     | Pi |
+| `xsigma`  | `\sigma`  | Sigma |
+| `xzeta`   | `\zeta`   | Zeta |
+| `xrho`    | `\rho`    | Rho |
+| `xtau`    | `\tau`    | Tau |
+| `xups`    | `\upsilon`| Upsilon |
+| `xxi`     | `\xi`     | Xi |
+| `xXi`     | `\Xi`     | Uppercase Xi |
+| `xe`      | `\epsilon`| Epsilon |
+| `xve`     | `\varepsilon` | Varepsilon |
+| `xet`     | `\eta`    | Eta |
+| `xp`      | `\phi`    | Phi |
+| `xvp`     | `\varphi` | Varphi |
+| `xph`     | `\phi`    | (Same as `xp`) |
+| `xcph`    | `\Phi`    | Uppercase Phi |
+| `xps`     | `\psi`    | Psi |
+| `xcps`    | `\Psi`    | Uppercase Psi |
+| `xth`     | `\theta`  | Theta |
+
+### 6. Miscellaneous & Common Commands
+
+| Trigger  | Completion | Description |
+|----------|-----------|-------------|
+| `usep`   | `\usepackage{}` | Import package |
+| `foot`   | `\footnote{}` | Footnote |
+| `frac`   | `\frac{}{}` | Fraction |
+| `fbox`   | `\fbox{}` | Boxed text |
+| `fboxo`  | `\framebox{}` | Frame box |
+| `href`   | `\href{}{}` | Hyperlink |
+| `incg`   | `\includegraphics{}` | Insert image |
+| `incgo`  | `\includegraphics[]{}{}` | Insert image with options |
+| `ncol`   | `&` | Column separator in tables |
+| `newc`   | `\newcommand{}{}` | Define new command |
+| `newe`   | `\newenvironment{}{}{}` | Define new environment |
+| `newpg`  | `\newpage` | New page command |
+| `pgref`  | `\pageref{}` | Page reference |
+| `pgs`    | `\pagestyle{}` | Page style |
+| `sqrt`   | `\sqrt{}` | Square root |
+| `toc`    | `\tableofcontents` | Table of contents |
+| `listf`  | `\listoffigures` | List of figures |
+| `list`   | `\listoftables` | List of tables |
+| `multic` | `\multicolumn{}{}{}` | Multicolumn in tables |
+
+
+
 ## Save & Load Notes  
 ![save_load](figs/save_load.gif)  
 You can load your notes from any file of your choice using the **Load** feature. This allows you to open previously saved notes from your system and continue editing them.
