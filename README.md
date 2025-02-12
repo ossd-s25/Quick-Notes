@@ -45,3 +45,4 @@ git clone git@github.com:ossd-s25/Quick-Notes.git
 - [Yufeng(Felix) Xu](https://zephyr271828.github.io/)
 - [Haocheng(Jason) Lu](https://github.com/LuHC409)
 - [Alvaro Martinez](https://github.com/AlvaroMartinezM)
+
