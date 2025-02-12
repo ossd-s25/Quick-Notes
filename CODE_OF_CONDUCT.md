@@ -60,7 +60,7 @@ representative at an online or offline event.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement at
-[INSERT CONTACT METHOD].
+[yx3038@nyu.edu](mailto:yx3038@nyu.edu), [hl5026@nyu.edu](mailto:hl5026@nyu.edu), and [amm9871@nyu.edu](mailto:amm9871@nyu.edu).
 All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the
