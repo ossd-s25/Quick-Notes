@@ -1,13 +1,20 @@
-# Contribute to Quick Notes
+# **Contribute to Quick Notes**
 
-Everyone is welcome to contribute to Quick Notes! The ways that you can contribute to our project include but not limited to:
-- Raise a issue about an existing bug or a new feature you want to add.
-- Answer others' problems in the issue section.
-- Fix an existing bugs or implement a new feature.
-- Contribute to our documents.
+We welcome all contributions to **Quick Notes**! Whether you're a developer, designer, or just passionate about open-source, there are many ways to get involved:
 
-However you want to contribute, make sure you adhere to our [code of conduct](CODE_OF_CONDUCT.md).
+- Report issues, such as bugs or feature requests, in the **Issues** section.
+- Help answer questions and troubleshoot problems for other contributors.
+- Fix existing bugs or develop new features.
+- Improve our documentation to make the project more accessible.
 
-## Existing Bugs \& Features we want to add
-- [ ] **LaTeX rendering bug:** In the LaTeX rendering mode, somehow Quick Note fails to render inline math when the source code is enclosed by '\$'. The LaTeX code renders correctly, however, when its enclosed by "\$\$" or "\\(". Some documents point out this may be due to render conflicts between Markdown and LaTeX. You may try to fix the bug by reconfiguring Marked and MathJaX.
-- [ ] **Better visual design:** At this point our visual design is quite simple. We are planning to upgrade it and incorporate some NYU elements! If you are an expert in web design, feel free to contribute to this project!
+Before contributing, please review our [Code of Conduct](CODE_OF_CONDUCT.md) to ensure a positive and inclusive collaboration.
+
+## **Open Issues & Feature Requests**
+
+### 🐞 **Bugs to Fix**
+- **LaTeX Rendering Bug:** Inline math enclosed in `'$'` fails to render properly, while `"$$"` and `"\("` formats work correctly. This might be due to conflicts between **Marked** and **MathJax**. Contributions are welcome to investigate and resolve this issue by adjusting the rendering configuration.
+
+### 🎨 **Feature Enhancements**
+- **Improved Visual Design:** Our current UI is minimal, and we'd love to enhance it with a more polished look, possibly incorporating **NYU-themed** elements. If you have experience in web design, your expertise would be highly appreciated!
+
+We look forward to your contributions and thank you for helping improve Quick Notes! 🚀
